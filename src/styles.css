@@ -1,0 +1,5 @@
+/* Global Styles */
+
+router-outlet+* {
+    padding: 0 16px;
+}

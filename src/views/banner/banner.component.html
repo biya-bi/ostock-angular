@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-md" *ngIf="{userProfile: userProfile$ | async, 
+        isLoginPage: isLoginPage$ | async} as data">
+    <div class="container-xxl">
+        <span class="fw-bold text-secondary">O-Stock</span>
+        <!-- Toggle button for mobile nav -->
+        <button class="navba-toggler d-md-none items-align-center" type="button" data-bs-toggle="collapse"
+            data-bs-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation"
+            *ngIf="!data.isLoginPage">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- Navigation bar links -->
+        <div class="collapse navbar-collapse justify-content-end align-center" id="main-nav" *ngIf="!data.isLoginPage">
+            <ul class="navbar-nav">
+                <li class="nav-item d-md-none">
+                    <app-authentication [userProfile]="data.userProfile"></app-authentication>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/home" class="nav-link d-flex">
+                        <em class="material-icons">home</em>
+                        <span class="">Home</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/organizations" class="nav-link">Organizations</a>
+                </li>
+                <li class="nav-item ms-2 d-none d-md-inline">
+                    <app-authentication [userProfile]="data.userProfile"></app-authentication>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
