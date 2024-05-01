@@ -2,7 +2,6 @@ import { Injectable, Injector } from "@angular/core";
 import { Observable, Subject, of, shareReplay, take, tap } from "rxjs";
 import { OauthProvider } from "../models/oauth-provider";
 import { UserProfile } from "../models/user-profile";
-import { GithubApiService } from "../services/github-api.service";
 import { GoogleApiService } from "../services/google-api.service";
 import { KeycloakApiService } from "../services/keycloak-api.service";
 
@@ -54,7 +53,7 @@ export class AuthenticationManager {
         if (provider === OauthProvider.keycloak) {
             return this.injector.get(KeycloakApiService);
         }
-        return this.injector.get(GithubApiService);
+        return undefined;
     }
 
     private autoLogin() {
