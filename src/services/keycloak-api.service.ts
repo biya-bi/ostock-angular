@@ -39,6 +39,8 @@ export class KeycloakApiService implements AuthenticationService {
   }
 
   logOut() {
+    // For some reason, logoutUrl is lost on oAuthService and requires reconfiguration before logging out.
+    this.oAuthService.configure(authConfig);
     this.oAuthService.logOut();
   }
 
