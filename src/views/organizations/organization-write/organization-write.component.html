@@ -1,32 +1,32 @@
-<h2>{{title$ | async}}</h2>
+<h2 class="d-flex justify-content-center mb-4">{{title$ | async}}</h2>
 <form *ngIf="formGroup" [formGroup]="formGroup" (ngSubmit)="submit()">
     <div class="container">
-        <div class="row">
-            <div class="col-auto">
+        <div class="row m-2">
+            <div class="col text-end">
                 <label for="name" class="fw-bold">Name:</label>
             </div>
             <div class="col">
                 <input type="text" id="name" placeholder="Organization name" formControlName="name">
             </div>
         </div>
-        <div class="row">
-            <div class="col-auto">
+        <div class="row m-2">
+            <div class="col text-end">
                 <label for="contactName" class="fw-bold">Contact name:</label>
             </div>
             <div class="col">
                 <input type="text" id="contactName" placeholder="Contact name" formControlName="contactName">
             </div>
         </div>
-        <div class="row">
-            <div class="col-auto">
+        <div class="row m-2">
+            <div class="col text-end">
                 <label for="contactEmail" class="fw-bold">Contact email:</label>
             </div>
             <div class="col">
                 <input type="email" id="contactEmail" placeholder="Contact email" formControlName="contactEmail">
             </div>
         </div>
-        <div class="row">
-            <div class="col-auto">
+        <div class="row m-2">
+            <div class="col text-end">
                 <label for="contactPhone" class="fw-bold">Contact phone:</label>
             </div>
             <div class="col">
@@ -34,7 +34,7 @@
             </div>
         </div>
     </div>
-    <div class="mt-2 d-flex">
+    <div class="mt-4 d-flex justify-content-center">
         <button type="submit" class="btn btn-primary">Save</button>
         <span class="m-2">|</span>
         <a routerLink="/organizations" class="btn btn-link ps-0">List</a>

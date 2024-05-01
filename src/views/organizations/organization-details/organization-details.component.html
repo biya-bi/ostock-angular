@@ -1,40 +1,39 @@
-<h2>Organization details</h2>
+<h2 class="d-flex justify-content-center mb-4">Organization details</h2>
 <div class="container" *ngIf="organization">
     <div class="row">
-        <div class="col-auto">
-            <label class="fw-bold">Name:</label>
+        <div class="col text-end">
+            <span class="fw-bold">Name:</span>
         </div>
         <div class="col">
-            <label>{{organization.name}}</label>
+            <span>{{organization.name}}</span>
         </div>
     </div>
     <div class="row">
-        <div class="col-auto">
-            <label class="fw-bold">Contact name:</label>
+        <div class="col text-end">
+            <span class="fw-bold">Contact name:</span>
         </div>
         <div class="col">
-            <label>{{organization.contactName}}</label>
+            <span>{{organization.contactName}}</span>
         </div>
     </div>
     <div class="row">
-        <div class="col-auto">
-            <label class="fw-bold">Contact email:</label>
+        <div class="col text-end">
+            <span class="fw-bold">Contact email:</span>
         </div>
         <div class="col">
-            <label>{{organization.contactEmail}}</label>
+            <span>{{organization.contactEmail}}</span>
         </div>
     </div>
     <div class="row">
-        <div class="col-auto">
-            <label class="fw-bold">Contact phone:</label>
+        <div class="col text-end">
+            <span class="fw-bold">Contact phone:</span>
         </div>
         <div class="col">
-            <label>{{organization.contactPhone}}</label>
+            <span>{{organization.contactPhone}}</span>
         </div>
     </div>
-    <div class="mt-2 d-flex">
-        <a routerLink="/organizations/edit"
-        [queryParams]="{uri:organization._links.update.href}">Edit</a>
+    <div class="mt-4 d-flex justify-content-center">
+        <a routerLink="/organizations/edit" [queryParams]="{uri:organization._links.update.href}">Edit</a>
         <span class="ms-2 me-2">|</span>
         <a href="#" data-bs-toggle="modal" data-bs-target="#deleteOrganizationModal">Delete</a>
         <span class="ms-2 me-2">|</span>
