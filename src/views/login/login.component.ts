@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthenticationManager } from '../../managers/authentication.manager';
-import { OauthProvider } from '../../models/oauth-provider';
+import { OAuthProviderType } from '../../models/oauth-provider-type';
 
 @Component({
   selector: 'app-login',
@@ -9,12 +9,12 @@ import { OauthProvider } from '../../models/oauth-provider';
 })
 export class LoginComponent {
 
-  OauthProvider = OauthProvider;
+  OAuthProviderType = OAuthProviderType;
 
   constructor(private readonly authenticationManager: AuthenticationManager) { }
 
-  login(provider: OauthProvider) {
-    this.authenticationManager.logIn(provider);
+  login(providerType: OAuthProviderType) {
+    this.authenticationManager.logIn(providerType);
   }
 
 }
