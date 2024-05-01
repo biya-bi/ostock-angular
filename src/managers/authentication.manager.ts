@@ -2,8 +2,8 @@ import { Injectable, Injector } from "@angular/core";
 import { Observable, Subject, of, shareReplay, take, tap } from "rxjs";
 import { OAuthProviderType } from "../models/oauth-provider-type";
 import { UserProfile } from "../models/user-profile";
-import { GoogleApiService } from "../services/google-api.service";
-import { KeycloakApiService } from "../services/keycloak-api.service";
+import { GoogleOAuthProvider } from "../providers/google-oauth.provider";
+import { KeycloakOAuthProvider } from "../providers/keycloak-oauth.provider";
 
 const OAUTH_PROVIDER_KEY = 'oAuthProvider';
 
@@ -48,10 +48,10 @@ export class AuthenticationManager {
 
     private getAuthenticationService(providerType: OAuthProviderType) {
         if (providerType === OAuthProviderType.google) {
-            return this.injector.get(GoogleApiService);
+            return this.injector.get(GoogleOAuthProvider);
         }
         if (providerType === OAuthProviderType.keycloak) {
-            return this.injector.get(KeycloakApiService);
+            return this.injector.get(KeycloakOAuthProvider);
         }
         return undefined;
     }

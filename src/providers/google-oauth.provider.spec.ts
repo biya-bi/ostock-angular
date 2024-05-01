@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { KeycloakApiService } from './keycloak-api.service';
+import { GoogleOAuthProvider } from './google-oauth.provider';
 
-describe('KeycloakApiService', () => {
-  let service: KeycloakApiService;
+describe('GoogleOAuthProvider', () => {
+  let service: GoogleOAuthProvider;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(KeycloakApiService);
+    service = TestBed.inject(GoogleOAuthProvider);
   });
 
   it('should be created', () => {

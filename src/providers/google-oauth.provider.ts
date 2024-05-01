@@ -5,7 +5,7 @@ import { AbstractOAuthProvider } from './abstract-oauth.provider';
 @Injectable({
   providedIn: 'root'
 })
-export class KeycloakApiService extends AbstractOAuthProvider {
+export class GoogleOAuthProvider extends AbstractOAuthProvider {
 
   constructor(protected override readonly oAuthService: OAuthService) {
     super(oAuthService);
@@ -13,15 +13,16 @@ export class KeycloakApiService extends AbstractOAuthProvider {
 
   protected override getAuthConfig(): AuthConfig {
     return {
-      issuer: 'http://192.168.2.12:2080/realms/ostock-realm',
+      issuer: "https://accounts.google.com",
       strictDiscoveryDocumentValidation: false,
       redirectUri: document.location.origin,
-      clientId: 'ostock',
+      clientId: '479603210590-tg2941ec6ivracsia1sv2bf93di5b3rp.apps.googleusercontent.com',
       scope: 'openid profile email',
-      requireHttps: false, // TODO: Change this before going live
-      loginUrl: 'http://192.168.2.12:2080',
-      logoutUrl: document.location.origin + '/logout'
     };
+  }
+
+  protected override getInitFlowParams(): {} {
+    return { prompt: 'select_account' };
   }
 
 }
