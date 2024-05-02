@@ -26,7 +26,7 @@ export class ApiConnector {
   }
 
   subscribeToNotifications(subscription: PushSubscriptionJSON): Observable<boolean> {
-    return this.httpClient.post<boolean>(this.notificationEndpoint, subscription, this.getOptions());
+    return this.httpClient.post<boolean>(`${this.notificationEndpoint}/subscribe`, subscription, this.getOptions());
   }
 
   createOrganization(organization: Organization): Observable<Organization> {
