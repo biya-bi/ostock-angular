@@ -1,6 +1,6 @@
 import { CommonModule } from "@angular/common";
 import { HttpClientModule } from "@angular/common/http";
-import { NgModule } from "@angular/core";
+import { NgModule, isDevMode } from "@angular/core";
 import { ReactiveFormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
 import { RouterModule, RouterOutlet } from "@angular/router";
@@ -17,6 +17,8 @@ import { OrganizationAddComponent } from "../views/organizations/organization-wr
 import { OrganizationEditComponent } from "../views/organizations/organization-write/organization-edit.component";
 import { AppComponent } from "./app.component";
 import { routes } from "./app.routes";
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from "../environments/environment";
 
 @NgModule({
     imports: [
@@ -26,7 +28,13 @@ import { routes } from "./app.routes";
         OAuthModule.forRoot(),
         ReactiveFormsModule,
         RouterOutlet,
-        RouterModule.forRoot(routes)
+        RouterModule.forRoot(routes),
+        ServiceWorkerModule.register('ngsw-worker.js', {
+          enabled: environment.production,
+          // Register the ServiceWorker as soon as the application is stable
+          // or after 30 seconds (whichever comes first).
+          registrationStrategy: 'registerWhenStable:30000'
+        })
     ],
     declarations: [
         AppComponent,
