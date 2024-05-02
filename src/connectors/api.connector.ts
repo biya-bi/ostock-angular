@@ -4,14 +4,15 @@ import { OAuthService } from 'angular-oauth2-oidc';
 import { Observable, map, of } from 'rxjs';
 import { OrganizationCollectionModel } from '../models/organization-collection.model';
 import { Organization } from '../models/organization';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiConnector {
 
-  private readonly url = 'http://localhost:8072/api';
-  private readonly organizationEndpoint = this.url + '/v1/organization';
+  private readonly url = environment.url;
+  private readonly organizationEndpoint = `${this.url}/v1/organization`;
   private readonly notificationEndpoint = `${this.url}/v1/notification`;
 
   constructor(private readonly httpClient: HttpClient, private readonly oAuthService: OAuthService) { }
@@ -19,7 +20,7 @@ export class ApiConnector {
   private getOptions() {
     return {
       headers: {
-        Authorization: 'Bearer ' + this.oAuthService.getAccessToken()
+        Authorization: `Bearer ${this.oAuthService.getAccessToken()}`
       }
     }
   }
