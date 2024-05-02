@@ -19,6 +19,7 @@ import { AppComponent } from "./app.component";
 import { routes } from "./app.routes";
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from "../environments/environment";
+import { NotificationContainer } from "../views/notification/notification.container";
 
 @NgModule({
     imports: [
@@ -48,6 +49,7 @@ import { environment } from "../environments/environment";
         OrganizationDetailsComponent,
         OrganizationEditComponent,
         OrganizationListComponent,
+        NotificationContainer
     ],
     bootstrap: [
         AppComponent
