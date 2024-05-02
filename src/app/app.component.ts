@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NotificationService } from '../services/notification.service';
-import { take } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +9,6 @@ import { take } from 'rxjs';
 export class AppComponent {
 
   constructor(private readonly notificationService: NotificationService) {
-    this.notificationService.requestSubscription().pipe(take(1)).subscribe();
+    this.notificationService.subscriptionRequest$.subscribe();
   }
 }
