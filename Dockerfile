@@ -1,11 +1,17 @@
-FROM node:alpine3.19 AS build
+FROM node:22.5.1 AS build
 
-WORKDIR /app
-COPY package*.json ./
-RUN npm install
+WORKDIR /opt/app
+
+COPY yarn.lock package.json ./
+
+RUN yarn install --configuration production
+
 COPY . .
-RUN npm run build --omit=dev
 
-EXPOSE 4200
+RUN yarn run build --configuration production
 
-ENTRYPOINT ng serve --host 0.0.0.0
+FROM nginx:1.27.0
+
+COPY --from=build /opt/app/dist/ostock-angular/browser /usr/share/nginx/html
+
+EXPOSE 80
