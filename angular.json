@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ostock-angular": {
+    "angular-frontend": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/ostock-angular",
+            "outputPath": "dist/angular-frontend",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -80,10 +80,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "ostock-angular:build:production"
+              "buildTarget": "angular-frontend:build:production"
             },
             "development": {
-              "buildTarget": "ostock-angular:build:development"
+              "buildTarget": "angular-frontend:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -91,7 +91,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "ostock-angular:build"
+            "buildTarget": "angular-frontend:build"
           }
         },
         "test": {

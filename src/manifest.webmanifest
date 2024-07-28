@@ -1,6 +1,6 @@
 {
-  "name": "ostock-angular",
-  "short_name": "ostock-angular",
+  "name": "angular-frontend",
+  "short_name": "angular-frontend",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "standalone",

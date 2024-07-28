@@ -12,6 +12,6 @@ RUN yarn run build --configuration production
 
 FROM nginx:1.27.0
 
-COPY --from=build /opt/app/dist/ostock-angular/browser /usr/share/nginx/html
+COPY --from=build /opt/app/dist/angular-frontend/browser /usr/share/nginx/html
 
 EXPOSE 80
